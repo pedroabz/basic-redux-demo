@@ -1,9 +1,10 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { increment } from "./features/counter/counter-slice";
+import { useAppSelector } from './hooks'
 
 function App() {
 
@@ -11,8 +12,9 @@ function App() {
 
   const dispatch = useDispatch();
   
-  const count = useSelector( (state: any) => state.counter.value)
-  const text = useSelector( (state: any) => state.text.description)
+  // with this, the type is set directly
+  const count = useAppSelector( (state) => state.counter.value)
+  const text = useAppSelector( (state) => state.text.description)
 
   // you can use the function directly defined in the slice. no need to use strings in the dispatch.
   const incrementCount = () => dispatch(increment())
