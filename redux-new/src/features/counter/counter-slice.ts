@@ -13,7 +13,7 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    // we can "modify" the state directly. The immutability is handled under the hood
+    // we can "modify" the state directly. The immutability is handled under the hood by the usage of the Immer library
     increment: (state) => {
       state.value += 1;
     },

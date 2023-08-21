@@ -14,8 +14,12 @@ function App() {
   const count = useSelector( (state: any) => state.counter.value)
   const text = useSelector( (state: any) => state.text.description)
 
-  // you can use the function directly defined in the slice.
+  // you can use the function directly defined in the slice. no need to use strings in the dispatch.
   const incrementCount = () => dispatch(increment())
+  
+  // nevertheless, if the string is in the 'domain/actionType' syntax, it should work fine as well => uses <reducerName>/<actionType) in that case dispatch(counter/increment) would also work 
+  // const incrementCount = () => dispatch(({type: "counter/increment"}))
+
   const changeText = (modifiedText: string) => dispatch({type: "text/modify", modifiedText: modifiedText})
 
   function handleChangeText(){
