@@ -13,7 +13,9 @@ function App() {
   
   const count = useSelector( (state: any) => state.counter.value)
   const text = useSelector( (state: any) => state.text.description)
-  const incrementCount = () => dispatch({ type: 'counter/increment' })
+
+  // you can use the function directly defined in the slice.
+  const incrementCount = () => dispatch(increment())
   const changeText = (modifiedText: string) => dispatch({type: "text/modify", modifiedText: modifiedText})
 
   function handleChangeText(){
